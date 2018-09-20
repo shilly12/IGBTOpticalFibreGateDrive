@@ -1,0 +1,99 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc
+Date     : 19/09/2018
+Time     : 19:03:49
+
+Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=100mil) (Preferred=50mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=7.874mil) (Max=248.031mil) (All)
+   Violation between Hole Size Constraint: (940mil > 248.031mil) Pad Free-4(4667.5mil,2420mil) on Multi-Layer Actual Slot Hole Height = 940mil
+Rule Violations :1
+
+Processing Rule : Hole To Hole Clearance (Gap=6mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=6mil) (All),(All)
+   Violation between Minimum Solder Mask Sliver Constraint: (1.843mil < 6mil) Between Pad U1-1(3326.457mil,2274.409mil) on Top Layer And Pad U1-2(3326.457mil,2300mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.842mil < 6mil) Between Pad U1-2(3326.457mil,2300mil) on Top Layer And Pad U1-3(3326.457mil,2325.59mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]
+Rule Violations :2
+
+Processing Rule : Silk To Solder Mask (Clearance=6mil) (IsPad),(All)
+   Violation between Silk To Solder Mask Clearance Constraint: (4.575mil < 6mil) Between Pad R6-2(5691.929mil,2730mil) on Top Layer And Text "R8" (5535mil,2677.5mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.575mil]
+Rule Violations :1
+
+Processing Rule : Silk to Silk (Clearance=6mil) (All),(All)
+   Violation between Silk To Silk Clearance Constraint: (5.064mil < 6mil) Between Arc (6141.565mil,3011.339mil) on Top Overlay And Text "G" (6095mil,2995mil) on Top Overlay Silk Text to Silk Clearance [5.064mil]
+   Violation between Silk To Silk Clearance Constraint: (5.402mil < 6mil) Between Text "1" (3970mil,2165mil) on Top Overlay And Track (3940mil,1995mil)(3940mil,2195mil) on Top Overlay Silk Text to Silk Clearance [5.402mil]
+   Violation between Silk To Silk Clearance Constraint: (3.445mil < 6mil) Between Text "C" (6095mil,2797.5mil) on Top Overlay And Track (6086.447mil,2785.118mil)(6196.683mil,2785.118mil) on Top Overlay Silk Text to Silk Clearance [3.445mil]
+   Violation between Silk To Silk Clearance Constraint: (4.488mil < 6mil) Between Text "D4" (5530mil,2517.5mil) on Top Overlay And Track (5463.425mil,2520.069mil)(5516.575mil,2520.069mil) on Top Overlay Silk Text to Silk Clearance [4.488mil]
+   Violation between Silk To Silk Clearance Constraint: (4.488mil < 6mil) Between Text "D4" (5530mil,2517.5mil) on Top Overlay And Track (5463.425mil,2551.565mil)(5516.575mil,2551.565mil) on Top Overlay Silk Text to Silk Clearance [4.488mil]
+   Violation between Silk To Silk Clearance Constraint: (4.488mil < 6mil) Between Text "D4" (5530mil,2517.5mil) on Top Overlay And Track (5516.575mil,2520.069mil)(5516.575mil,2551.565mil) on Top Overlay Silk Text to Silk Clearance [4.488mil]
+   Violation between Silk To Silk Clearance Constraint: (5.945mil < 6mil) Between Text "E" (6092.5mil,2600mil) on Top Overlay And Track (6084.882mil,2585.118mil)(6195.118mil,2585.118mil) on Top Overlay Silk Text to Silk Clearance [5.945mil]
+   Violation between Silk To Silk Clearance Constraint: (0.315mil < 6mil) Between Text "G" (6095mil,2995mil) on Top Overlay And Track (6086.447mil,2985.748mil)(6196.683mil,2985.748mil) on Top Overlay Silk Text to Silk Clearance [0.315mil]
+Rule Violations :8
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic'))
+   Violation between Room Definition: Between Component PWM1-GP1FAV31RK0F (3420mil,2950mil) on Top Layer And Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) 
+   Violation between Room Definition: Between Component U1-TLV70012DCKT (3286.102mil,2300mil) on Top Layer And Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) 
+   Violation between Room Definition: Between DIP Component P9-Header 3X2A (3890mil,2145mil) on Top Layer And Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SIP Component P2-CUI INC DC/DC (4410mil,2080mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And Small Component J1-CTBP9358/3 (6294.37mil,2730mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And Small Component P1-5V Power In (3045mil,2295mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And Small Component P3-Optical Fibre Enable Header (3630mil,2850mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And Small Component P4-TSW-103-07-F-S (4070mil,2285mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C10-Cap Semi (5691.929mil,2345mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C11-Cap Semi (5359.744mil,2534.37mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C12-Cap Semi (4160mil,2715mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C1-Cap Semi (3381.09mil,2136.447mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C2-Cap Semi (3166.457mil,2135.63mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C3-Cap (3515mil,2998.13mil) on Bottom Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C4-Cap Semi (4310mil,2425.63mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C5-Cap Semi (5237.372mil,2534.37mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C6-Cap Semi (5125mil,2455mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C8-Cap Semi (3767.628mil,2870.847mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C9-Cap Semi (3880mil,2870.847mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D1-STTH212U (5300mil,2190mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D2-Led_Green (3880mil,2642.333mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D3-LED_Red (3770mil,2642.333mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D4-BAT165 (5490mil,2535.817mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D5-STTH212U (5590mil,2880mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D6-BAT165 (5835mil,2973.898mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R10-Res3 (5970.63mil,2930.63mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R1-Res3 (3767.628mil,2425.63mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R2-Res3 (3880mil,2425.63mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R3-Res3 (5237.372mil,2721.546mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R4-Res3 (4195mil,2425.63mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R5-snubber_10Ohm_2w (5904.694mil,2613.11mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R6-snubber_10Ohm_2w (5691.929mil,2611.89mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R7-Res3 (4310mil,2754.37mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R8-Res3 (5492.372mil,2695.63mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R9-Res3 (5970mil,3045mil) on Top Layer 
+   Violation between Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SOIC Component u2-ISO5451 (4666.84mil,2590mil) on Top Layer 
+Rule Violations :36
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 48
+Waived Violations : 0
+Time Elapsed        : 00:00:00

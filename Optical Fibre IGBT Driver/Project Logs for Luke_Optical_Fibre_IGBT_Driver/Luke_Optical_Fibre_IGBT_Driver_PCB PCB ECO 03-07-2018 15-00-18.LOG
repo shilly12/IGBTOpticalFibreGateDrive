@@ -1,0 +1,6 @@
+Added Component: Designator=J1(CTBP9358/3)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=Emitter Pin=J1-1
+Added Pin To Net: NetName=Collector Pin=J1-2
+Added Pin To Net: NetName=Gate Pin=J1-3
+Added Member To Class: ClassName=Optical_Fibre_IGBT_Driver_Schematic Member=Component J1 CTBP9358/3

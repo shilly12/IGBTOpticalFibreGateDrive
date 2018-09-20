@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=Emitter Pin=C6-1
+Removed Pin From Net: NetName=Emitter Pin=P2-5
+Removed Pin From Net: NetName=Emitter Pin=u2-1
+Removed Pin From Net: NetName=Emitter Pin=u2-8
+Added Pin To Net: NetName=NetC6_1 Pin=C6-1
+Added Pin To Net: NetName=NetC6_1 Pin=P2-5
+Added Pin To Net: NetName=NetC6_1 Pin=u2-1
+Added Pin To Net: NetName=NetC6_1 Pin=u2-8
+Added Net: Name=NetC6_1

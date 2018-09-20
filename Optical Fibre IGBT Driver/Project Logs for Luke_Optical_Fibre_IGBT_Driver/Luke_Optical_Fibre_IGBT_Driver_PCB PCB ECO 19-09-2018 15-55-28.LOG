@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=Emitter Pin=P5-1
+Removed Member From Class: ClassName=Optical_Fibre_IGBT_Driver_Schematic Member=P5
+Added Component: Designator=*1(Test Point 20-2137)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=Emitter Pin=*1-1
+Change Net Name : Old Net Name=Collector New Net Name=Collector/Drain
+Change Net Name : Old Net Name=Emitter New Net Name=Emitter/Source
+Added Member To Class: ClassName=Optical_Fibre_IGBT_Driver_Schematic Member=Component *1 Test Point 20-2137
+Added Member To Class: ClassName=Optical_Fibre_IGBT_Driver_Schematic Member=Component PWM1 GP1FAV31RK0F

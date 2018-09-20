@@ -1,0 +1,17 @@
+Added Pin To Net: NetName=NetC4_2 Pin=R4-1
+Added Pin To Net: NetName=VCC Pin=R4-2
+Added Pin To Net: NetName=NetC6_1 Pin=u2-1
+Added Pin To Net: NetName=NetC11_2 Pin=u2-2
+Added Pin To Net: NetName=Emitter Pin=u2-3
+Added Pin To Net: NetName=NetC5_1 Pin=u2-5
+Added Pin To Net: NetName=NetD6_1 Pin=u2-6
+Added Pin To Net: NetName=NetC6_1 Pin=u2-8
+Added Pin To Net: NetName=GND Pin=u2-9
+Added Pin To Net: NetName=NetC12_2 Pin=u2-10
+Added Pin To Net: NetName=GND Pin=u2-11
+Added Pin To Net: NetName=Rdy Pin=u2-12
+Added Pin To Net: NetName=Flt Pin=u2-13
+Added Pin To Net: NetName=Rst Pin=u2-14
+Added Pin To Net: NetName=NetC4_2 Pin=u2-15
+Added Pin To Net: NetName=GND Pin=u2-16
+Added Member To Class: ClassName=Optical_Fibre_IGBT_Driver_Schematic Member=Component R4 Res3

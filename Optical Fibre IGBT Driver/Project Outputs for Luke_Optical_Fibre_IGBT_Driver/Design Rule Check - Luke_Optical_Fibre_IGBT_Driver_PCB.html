@@ -1,0 +1,492 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD18\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">19/09/2018</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">19:03:49</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc" class="file"><acronym title="C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc">C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">48</td></tr>
+</table>
+</td>
+</table><a name="IDGAND011XOCKZJ003LIBOOC0Q3OSLDNEDRDDXOAMWWKHT5NO1HYJE"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRZQ1ZRCKVH5KL4IXMZNIQ5GZPHXKJR4SAJS2MPUY3S5Y5L1O3NJ">Clearance Constraint (Gap=6mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDR1NYCC20HOISKKZ3DYDLQMCF2CORQGFCBBZ3TNYTA11ANCEXXNK">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4MZRCKOOWJVBPDRPZKVVDZY2HPSMUWQP03FSE3HMLZ3AXZYP3ECK">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDON01RC1BPYNIH41QBBA4QQWC5PJDO1OOULIYD4M30QTSAHJKKANM">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJUXLBF1X301PFGZJKD5ODW1FCCBHESKAEK3JDLFXJMNLKIPWJSDK">Width Constraint (Min=10mil) (Max=100mil) (Preferred=50mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4S1PSFVMVDEPNCYFYGRRAOIPVCA2JCU00LLTN2LI3TZPIW5IECOJ">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSI0RQXN2G2RYENYJCKVSUAYJJNAHJLEHQ4J3UTDKW3XN1BMEYSQC">Hole Size Constraint (Min=7.874mil) (Max=248.031mil) (All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHN22GERCHANZKFWWM5J5VKXFENS1YFO1XKF2A1BCHYW3RM4MCNOF">Hole To Hole Clearance (Gap=6mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAT3543US4UJKCDNFLSKNBMLNABTO0XMBMXGBDSK05LPEBRGNYA5O">Minimum Solder Mask Sliver (Gap=6mil) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOSB042GWYAHQMYJ0ZVKF2NWA0JQ1YFII0F04R5DXKTWSH1C0CNJG">Silk To Solder Mask (Clearance=6mil) (IsPad),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHUBL300LPNTNNZ4LGQB4LWUWIFWSQFU5ALZGYRFZXVAF5UYHPPLJ">Silk to Silk (Clearance=6mil) (All),(All)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDUARYMDACWSFFCJEX2N3XMRAFDEHFNGAXFUZMUOKEWCPPNKNT1RTN">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCWOIT0W3YE04CPM5I1CSWLRI1I5CYPTS2PYCOYEOBD4Y2NS3UCML">Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic'))</a></td>
+<td class="column2">36</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGNSSV54SJO4LFMJZ1HZP33EATIBLIVG2EDNXJ0HSPB5XOKN0RJBF">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">48</td>
+</tr>
+</table><br><a name="IDSI0RQXN2G2RYENYJCKVSUAYJJNAHJLEHQ4J3UTDKW3XN1BMEYSQC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=7.874mil) (Max=248.031mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4196.875mil|Location2.X=5138.125mil|Location1.Y=1949.375mil|Location2.Y=2890.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4196.875mil|Location2.X=5138.125mil|Location1.Y=1949.375mil|Location2.Y=2890.625mil|Absolute=True">Hole Size Constraint: (940mil &gt; 248.031mil) Pad Free-4(4667.5mil,2420mil) on Multi-Layer Actual Slot Hole Height = 940mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDAT3543US4UJKCDNFLSKNBMLNABTO0XMBMXGBDSK05LPEBRGNYA5O"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=6mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3312.005mil|Location2.X=3319.255mil|Location1.Y=2283.58mil|Location2.Y=2290.83mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3312.005mil|Location2.X=3319.255mil|Location1.Y=2283.58mil|Location2.Y=2290.83mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 6mil) Between Pad U1-1(3326.457mil,2274.409mil) on Top Layer And Pad U1-2(3326.457mil,2300mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3312.005mil|Location2.X=3319.255mil|Location1.Y=2309.17mil|Location2.Y=2316.42mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3312.005mil|Location2.X=3319.255mil|Location1.Y=2309.17mil|Location2.Y=2316.42mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.842mil &lt; 6mil) Between Pad U1-2(3326.457mil,2300mil) on Top Layer And Pad U1-3(3326.457mil,2325.59mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDOSB042GWYAHQMYJ0ZVKF2NWA0JQ1YFII0F04R5DXKTWSH1C0CNJG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=6mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5605.307mil|Location2.X=5612.557mil|Location1.Y=2707.198mil|Location2.Y=2714.448mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5605.307mil|Location2.X=5612.557mil|Location1.Y=2707.198mil|Location2.Y=2714.448mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.575mil &lt; 6mil) Between Pad R6-2(5691.929mil,2730mil) on Top Layer And Text "R8" (5535mil,2677.5mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.575mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDHUBL300LPNTNNZ4LGQB4LWUWIFWSQFU5ALZGYRFZXVAF5UYHPPLJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=6mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6125.565mil|Location2.X=6132.815mil|Location1.Y=3007.714mil|Location2.Y=3014.964mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6125.565mil|Location2.X=6132.815mil|Location1.Y=3007.714mil|Location2.Y=3014.964mil|Absolute=True">Silk To Silk Clearance Constraint: (5.064mil &lt; 6mil) Between Arc (6141.565mil,3011.339mil) on Top Overlay And Text "G" (6095mil,2995mil) on Top Overlay Silk Text to Silk Clearance [5.064mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3943.013mil|Location2.X=3950.263mil|Location1.Y=2161.375mil|Location2.Y=2168.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3943.013mil|Location2.X=3950.263mil|Location1.Y=2161.375mil|Location2.Y=2168.625mil|Absolute=True">Silk To Silk Clearance Constraint: (5.402mil &lt; 6mil) Between Text "1" (3970mil,2165mil) on Top Overlay And Track (3940mil,1995mil)(3940mil,2195mil) on Top Overlay Silk Text to Silk Clearance [5.402mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6098.039mil|Location2.X=6105.289mil|Location1.Y=2787.153mil|Location2.Y=2794.403mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6098.039mil|Location2.X=6105.289mil|Location1.Y=2787.153mil|Location2.Y=2794.403mil|Absolute=True">Silk To Silk Clearance Constraint: (3.445mil &lt; 6mil) Between Text "C" (6095mil,2797.5mil) on Top Overlay And Track (6086.447mil,2785.118mil)(6196.683mil,2785.118mil) on Top Overlay Silk Text to Silk Clearance [3.445mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5519.131mil|Location2.X=5526.381mil|Location1.Y=2516.444mil|Location2.Y=2523.694mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5519.131mil|Location2.X=5526.381mil|Location1.Y=2516.444mil|Location2.Y=2523.694mil|Absolute=True">Silk To Silk Clearance Constraint: (4.488mil &lt; 6mil) Between Text "D4" (5530mil,2517.5mil) on Top Overlay And Track (5463.425mil,2520.069mil)(5516.575mil,2520.069mil) on Top Overlay Silk Text to Silk Clearance [4.488mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5519.131mil|Location2.X=5526.381mil|Location1.Y=2547.94mil|Location2.Y=2555.19mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5519.131mil|Location2.X=5526.381mil|Location1.Y=2547.94mil|Location2.Y=2555.19mil|Absolute=True">Silk To Silk Clearance Constraint: (4.488mil &lt; 6mil) Between Text "D4" (5530mil,2517.5mil) on Top Overlay And Track (5463.425mil,2551.565mil)(5516.575mil,2551.565mil) on Top Overlay Silk Text to Silk Clearance [4.488mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5519.131mil|Location2.X=5526.381mil|Location1.Y=2516.444mil|Location2.Y=2523.694mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5519.131mil|Location2.X=5526.381mil|Location1.Y=2516.444mil|Location2.Y=2523.694mil|Absolute=True">Silk To Silk Clearance Constraint: (4.488mil &lt; 6mil) Between Text "D4" (5530mil,2517.5mil) on Top Overlay And Track (5516.575mil,2520.069mil)(5516.575mil,2551.565mil) on Top Overlay Silk Text to Silk Clearance [4.488mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6088.875mil|Location2.X=6096.125mil|Location1.Y=2588.403mil|Location2.Y=2595.653mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6088.875mil|Location2.X=6096.125mil|Location1.Y=2588.403mil|Location2.Y=2595.653mil|Absolute=True">Silk To Silk Clearance Constraint: (5.945mil &lt; 6mil) Between Text "E" (6092.5mil,2600mil) on Top Overlay And Track (6084.882mil,2585.118mil)(6195.118mil,2585.118mil) on Top Overlay Silk Text to Silk Clearance [5.945mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6098.039mil|Location2.X=6105.289mil|Location1.Y=2986.218mil|Location2.Y=2993.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6098.039mil|Location2.X=6105.289mil|Location1.Y=2986.218mil|Location2.Y=2993.468mil|Absolute=True">Silk To Silk Clearance Constraint: (0.315mil &lt; 6mil) Between Text "G" (6095mil,2995mil) on Top Overlay And Track (6086.447mil,2985.748mil)(6196.683mil,2985.748mil) on Top Overlay Silk Text to Silk Clearance [0.315mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCWOIT0W3YE04CPM5I1CSWLRI1I5CYPTS2PYCOYEOBD4Y2NS3UCML"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2982.992mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=3191.22mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2982.992mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=3191.22mil|Absolute=True">Room Definition: Between Component PWM1-GP1FAV31RK0F (3420mil,2950mil) on Top Layer And Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3228.032mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2348.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3228.032mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2348.228mil|Absolute=True">Room Definition: Between Component U1-TLV70012DCKT (3286.102mil,2300mil) on Top Layer And Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3636.063mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2240mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3636.063mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2240mil|Absolute=True">Room Definition: Between DIP Component P9-Header 3X2A (3890mil,2145mil) on Top Layer And Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4306.063mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2323.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4306.063mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2323.937mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SIP Component P2-CUI INC DC/DC (4410mil,2080mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6210.63mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=3062.559mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6210.63mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=3062.559mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And Small Component J1-CTBP9358/3 (6294.37mil,2730mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2991.063mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2348.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2991.063mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2348.937mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And Small Component P1-5V Power In (3045mil,2295mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3576.063mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2903.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3576.063mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2903.937mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And Small Component P3-Optical Fibre Enable Header (3630mil,2850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4010.157mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2552.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4010.157mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2552.323mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And Small Component P4-TSW-103-07-F-S (4070mil,2285mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5652.559mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2425.709mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5652.559mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2425.709mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C10-Cap Semi (5691.929mil,2345mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5308.563mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2622.953mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5308.563mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2622.953mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C11-Cap Semi (5359.744mil,2534.37mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4071.417mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2766.181mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4071.417mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2766.181mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C12-Cap Semi (4160mil,2715mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3329.909mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2240mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3329.909mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2240mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C1-Cap Semi (3381.09mil,2136.447mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3115.276mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2240mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3115.276mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2240mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C2-Cap Semi (3166.457mil,2135.63mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3463.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=3086.713mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3463.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=3086.713mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C3-Cap (3515mil,2998.13mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4258.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2514.213mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4258.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2514.213mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C4-Cap Semi (4310mil,2425.63mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5186.191mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2622.953mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5186.191mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2622.953mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C5-Cap Semi (5237.372mil,2534.37mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5073.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2543.583mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5073.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2543.583mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C6-Cap Semi (5125mil,2455mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3716.447mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2959.43mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3716.447mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2959.43mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C8-Cap Semi (3767.628mil,2870.847mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3828.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2959.43mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3828.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2959.43mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component C9-Cap Semi (3880mil,2870.847mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5214.567mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2356.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5214.567mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2356.535mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D1-STTH212U (5300mil,2190mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3830.787mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2772.254mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3830.787mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2772.254mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D2-Led_Green (3880mil,2642.333mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3720.787mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2772.254mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3720.787mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2772.254mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D3-LED_Red (3770mil,2642.333mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5458.504mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2597.037mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5458.504mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2597.037mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D4-BAT165 (5490mil,2535.817mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5446.102mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2965.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5446.102mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2965.433mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D5-STTH212U (5590mil,2880mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5787.165mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=3035.118mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5787.165mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=3035.118mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component D6-BAT165 (5835mil,2973.898mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5882.047mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2981.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5882.047mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2981.811mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R10-Res3 (5970.63mil,2930.63mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3716.447mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2514.213mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3716.447mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2514.213mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R1-Res3 (3767.628mil,2425.63mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3828.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2514.213mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3828.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2514.213mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R2-Res3 (3880mil,2425.63mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5186.191mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2810.128mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5186.191mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2810.128mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R3-Res3 (5237.372mil,2721.546mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4143.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2514.213mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4143.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2514.213mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R4-Res3 (4195mil,2425.63mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5803.316mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2785.354mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5803.316mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2785.354mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R5-snubber_10Ohm_2w (5904.694mil,2613.11mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5590.551mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2784.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5590.551mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2784.134mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R6-snubber_10Ohm_2w (5691.929mil,2611.89mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4258.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2842.953mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4258.819mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2842.953mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R7-Res3 (4310mil,2754.37mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5441.191mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2784.213mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5441.191mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2784.213mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R8-Res3 (5492.372mil,2695.63mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5881.417mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=3096.181mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5881.417mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=3096.181mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SMT Small Component R9-Res3 (5970mil,3045mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4414.872mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2817.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Optical Fibre IGBT Driver\Luke_Optical_Fibre_IGBT_Driver_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4414.872mil|Location2.X=13924.37mil|Location1.Y=1670mil|Location2.Y=2817.362mil|Absolute=True">Room Definition: Between Room Optical_Fibre_IGBT_Driver_Schematic (Bounding Region = (7524.37mil, 1670mil, 13924.37mil, 2240mil) (InComponentClass('Optical_Fibre_IGBT_Driver_Schematic')) And SOIC Component u2-ISO5451 (4666.84mil,2590mil) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
