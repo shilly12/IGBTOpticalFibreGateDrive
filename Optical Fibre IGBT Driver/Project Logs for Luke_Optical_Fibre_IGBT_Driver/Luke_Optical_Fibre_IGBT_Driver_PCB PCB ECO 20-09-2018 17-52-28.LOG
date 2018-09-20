@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=Collector/Drain Pin=R5-1
+Removed Pin From Net: NetName=Emitter/Source Pin=R5-2
+Removed Member From Class: ClassName=Optical_Fibre_IGBT_Driver_Schematic Member=R5
+Added Pin To Net: NetName=Emitter/Source Pin=-1
+Added Class: Name=HV
+Added Rule: Name=Schematic Clearance Constraint
